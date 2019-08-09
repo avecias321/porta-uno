@@ -39,7 +39,7 @@ export class ProductosService {
   }
   getProducto( id: string ){
 
-    return this.http.get('https://luis-c1961.firebaseio.com/productos/$"id".json');
+    return this.http.get('https://luis-c1961.firebaseio.com/productos/${id}.json');
     
   }
 
