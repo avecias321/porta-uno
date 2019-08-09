@@ -23,20 +23,20 @@ export class InfoPaginaService {
     // Leer el archivo JSON
     this.http.get('assets/data/data-pagina.json')
     .subscribe( (resp: InfoPagina) => {
+
       this.cargada = true;
       this.info = resp;
-    });
+          });
   }
 
 
   private cargarEquipo() {
 
     // Leer el archivo JSON
-    this.http.get('https://angular-html-25cf9.firebaseio.com/equipo.json')
+    this.http.get('https://luis-c1961.firebaseio.com/equipo.json')
     .subscribe( (resp: any[]) => {
 
       this.equipo = resp;
-      // console.log(resp);
     });
 
 
