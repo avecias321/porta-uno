@@ -24,7 +24,7 @@ export class ProductosService {
   private cargarProductos() {
 
 
-  return new Promise(( resolve, reject) => {
+  return new Promise(( resolve, reject ) => {
 
         this.http.get('https://luis-c1961.firebaseio.com/productos_idx.json')
         .subscribe( (resp: Producto[]) => {
@@ -45,16 +45,16 @@ export class ProductosService {
 
   buscarProducto(termino: string){
 
-  if (this.productos.length ===0){
+  if (this.productos.length === 0){
   this.cargarProductos().then( () => {
 
-  this.filtrarProductos( termino);
+  this.filtrarProductos( termino );
 
-  })
+  });
 
   }else{
 
-  this.filtrarProductos( termino);
+  this.filtrarProductos( termino );
 
 
   }
@@ -69,16 +69,16 @@ export class ProductosService {
 
   private filtrarProductos( termino: string){
 
-    console.log(this.productos);
+    //console.log(this.productos);
     this.productosFiltrado = [];
 
     termino = termino.toLocaleLowerCase();
 
-    this.productos.forEach( prod =>{
+    this.productos.forEach( prod => {
 
     const tituloLower = prod.titulo.toLocaleLowerCase();
 
-    if( prod.categoria.indexOf( termino) >=0 ||  tituloLower.indexOf( termino) >=0){
+    if( prod.categoria.indexOf( termino ) >= 0 ||  tituloLower.indexOf( termino ) >= 0){
 
       this.productosFiltrado.push( prod );
 
